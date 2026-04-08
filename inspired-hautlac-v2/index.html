@@ -846,8 +846,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .parcours-item {
   text-align: center;
-  padding: 0 16px;
+  padding: 20px 16px;
   position: relative;
+  border-radius: 5px;
+  box-shadow: var(--shadow-card);
+  background: var(--white);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.parcours-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 .parcours-dot {
   width: 56px;
