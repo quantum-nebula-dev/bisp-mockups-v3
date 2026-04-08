@@ -2362,27 +2362,21 @@ body::after {
      INTERSECTION OBSERVER — REVEAL
      ═══════════════════════════════ */
   if (!prefersReducedMotion) {
-    var revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+    function revealCheck() {
+      var reveals = document.querySelectorAll('.reveal:not(.visible)');
+      reveals.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 60) {
+          el.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0,
-      rootMargin: '200px 0px 0px 0px'
-    });
-
-    document.querySelectorAll('.reveal').forEach(function(el) {
-      /* If the element is already above or inside viewport, reveal immediately */
-      var rect = el.getBoundingClientRect();
-      if (rect.bottom < window.innerHeight + 200) {
-        el.classList.add('visible');
-      } else {
-        revealObserver.observe(el);
+      if (document.querySelectorAll('.reveal:not(.visible)').length === 0) {
+        window.removeEventListener('scroll', revealCheck);
       }
-    });
+    }
+
+    window.addEventListener('scroll', revealCheck, { passive: true });
+    revealCheck();
   } else {
     document.querySelectorAll('.reveal').forEach(function(el) {
       el.classList.add('visible');
