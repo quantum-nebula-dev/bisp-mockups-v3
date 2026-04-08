@@ -1,0 +1,2492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BISP — Bilingual International School of Paris</title>
+<meta name="description" content="École bilingue internationale à Paris. 300 élèves, 32 nationalités, programmes Cambridge et Pearson Edexcel. Maternelle au Lycée.">
+<link rel="icon" href="../assets/logos/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   BISP — Inspired by Repton School
+   Timeline-driven, navy + gold palette
+   ═══════════════════════════════════════ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #1F2E59;
+  --navy-deep: #0F1B38;
+  --navy-light: #2E4073;
+  --gold: #B8975A;
+  --gold-light: #D4B87A;
+  --gold-muted: #93866C;
+  --cream: #FAF8F5;
+  --white: #FFFFFF;
+  --text-body: #3A3D45;
+  --text-light: #6B6E76;
+  --border-subtle: rgba(31, 46, 89, 0.08);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --timeline-width: 2px;
+  --timeline-dot: 14px;
+  --section-gap: 0;
+  --max-content: 1200px;
+  --nav-height: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .globe-dot { animation: none !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--text-body);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 0 0 6px 6px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Navigation ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 1000;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  background: transparent;
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 0 var(--border-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 44px;
+  width: auto;
+}
+
+.nav-logo-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.nav.scrolled .nav-logo-text {
+  color: var(--navy);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--gold);
+}
+
+.nav-cta {
+  font-family: var(--font-body) !important;
+  font-weight: 400 !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  padding: 0.65rem 1.75rem !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--navy) !important;
+  border-radius: 50px;
+  transition: all 0.3s ease !important;
+  background: transparent;
+}
+
+.nav-cta:hover {
+  background: var(--gold) !important;
+  color: var(--white) !important;
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+/* Mobile nav */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--navy);
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(184, 151, 90, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(31, 46, 89, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + 4rem) 2.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 440px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--gold-muted);
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-image-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow:
+    0 40px 80px rgba(31, 46, 89, 0.12),
+    0 8px 24px rgba(31, 46, 89, 0.06);
+}
+
+.hero-image-accent {
+  position: absolute;
+  bottom: -2rem;
+  left: -3rem;
+  width: 200px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 4px solid var(--white);
+  box-shadow: 0 20px 50px rgba(31, 46, 89, 0.15);
+}
+
+.hero-badge {
+  position: absolute;
+  top: 2rem;
+  right: -1.5rem;
+  background: var(--white);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(31, 46, 89, 0.1);
+  text-align: center;
+  border-left: 3px solid var(--gold);
+}
+
+.hero-badge-number {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.75rem;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.hero-badge-label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* ── Stats bar ── */
+.stats-bar {
+  background: var(--navy);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(184, 151, 90, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(184, 151, 90, 0.05) 0%, transparent 40%);
+}
+
+.stats-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(184, 151, 90, 0.2);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.5rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ═══════════════════════════════════════
+   TIMELINE STRUCTURE — THE SIGNATURE
+   ═══════════════════════════════════════ */
+.timeline-container {
+  position: relative;
+  padding: 6rem 0;
+}
+
+/* The golden vertical line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: var(--timeline-width);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--gold) 5%,
+    var(--gold) 95%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline section (zigzag) */
+.tl-section {
+  position: relative;
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* The dot on the timeline */
+.tl-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--timeline-dot);
+  height: var(--timeline-dot);
+  background: var(--gold);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(184, 151, 90, 0.15);
+}
+
+.tl-content {
+  padding: 0 2rem;
+}
+
+.tl-content.right {
+  grid-column: 2;
+}
+
+.tl-content.left {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.tl-visual {
+  position: relative;
+}
+
+.tl-visual.left {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.tl-visual.right {
+  grid-column: 2;
+}
+
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold-muted);
+}
+
+.section-text {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.section-text + .section-text {
+  margin-top: -0.5rem;
+}
+
+.tl-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(31, 46, 89, 0.1);
+}
+
+.tl-image-portrait {
+  aspect-ratio: 3/4;
+}
+
+/* Small decorative gold border on some images */
+.tl-visual-framed {
+  position: relative;
+}
+
+.tl-visual-framed::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(184, 151, 90, 0.2);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* ── Pillars section (within timeline) ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.pillar-card {
+  padding: 1.75rem;
+  background: var(--cream);
+  border-radius: 6px;
+  border-left: 2px solid var(--gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(31, 46, 89, 0.06);
+}
+
+.pillar-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.pillar-card h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-card p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════
+   GLOBE — Interactive nationality map
+   ═══════════════════════════════════════ */
+.globe-section {
+  background: var(--navy-deep);
+  padding: 6rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.globe-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(184, 151, 90, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(31, 46, 89, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(31, 46, 89, 0.2) 0%, transparent 40%);
+}
+
+.globe-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.globe-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.globe-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.globe-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.globe-subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+/* Globe canvas container */
+.globe-canvas-wrap {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  margin: 0 auto 3rem;
+}
+
+.globe-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Globe ring decoration */
+.globe-ring {
+  position: absolute;
+  border: 1px solid rgba(184, 151, 90, 0.15);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+}
+
+.globe-ring-1 {
+  width: 520px;
+  height: 520px;
+  transform: translate(-50%, -50%);
+}
+
+.globe-ring-2 {
+  width: 560px;
+  height: 560px;
+  transform: translate(-50%, -50%);
+  border-color: rgba(184, 151, 90, 0.07);
+}
+
+/* Nationality tags floating around globe */
+.globe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.globe-tag {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(184, 151, 90, 0.2);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.globe-tag:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(184, 151, 90, 0.08);
+}
+
+/* ── Video section ── */
+.video-section {
+  position: relative;
+  padding: 6rem 2.5rem;
+  background: var(--cream);
+}
+
+.video-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(184, 151, 90, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, var(--white) 0%, var(--cream) 30%, var(--cream) 70%, var(--white) 100%);
+}
+
+.video-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.video-wrapper {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(31, 46, 89, 0.15);
+  margin-top: 2.5rem;
+  aspect-ratio: 16/9;
+  background: var(--navy);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 27, 56, 0.3);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.video-play-btn:hover {
+  background: rgba(15, 27, 56, 0.15);
+}
+
+.video-play-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play-circle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.video-play-btn:hover .play-circle {
+  transform: scale(1.08);
+  border-color: var(--gold-light);
+}
+
+.play-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 22px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+  margin-left: 4px;
+}
+
+/* ── Testimonials ── */
+.testimonials {
+  padding: 6rem 2.5rem;
+  background: var(--white);
+  position: relative;
+}
+
+.testimonials-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.testimonial-card {
+  padding: 2.5rem;
+  background: var(--cream);
+  border-radius: 6px;
+  position: relative;
+  border-top: 2px solid var(--gold);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+}
+
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-body);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+}
+
+.testimonial-role {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-light);
+  margin-top: 0.2rem;
+}
+
+/* ── Accreditations ── */
+.accreditations {
+  padding: 4rem 2.5rem;
+  background: var(--white);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.accreditations-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.accreditation-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.accreditation-item img {
+  height: 52px;
+  width: auto;
+  filter: grayscale(30%);
+  opacity: 0.75;
+  transition: all 0.3s ease;
+}
+
+.accreditation-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.accreditation-label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* ── Tuition / Tarifs ── */
+.tuition {
+  padding: 6rem 2.5rem;
+  background: var(--white);
+  position: relative;
+}
+
+.tuition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(184, 151, 90, 0.03) 0%, transparent 50%);
+}
+
+.tuition-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  position: relative;
+}
+
+.tuition-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tuition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tuition-card {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.tuition-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(31, 46, 89, 0.06);
+}
+
+.tuition-card.featured {
+  border-color: var(--gold);
+  background: var(--cream);
+}
+
+.tuition-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.tuition-level {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.tuition-ages {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.tuition-price {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.25rem;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tuition-price span {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.tuition-period {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-light);
+}
+
+.tuition-features {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.tuition-features li {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text-body);
+  padding: 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tuition-features li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── Photo grid ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.photo-grid-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.photo-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.photo-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ── Contact / CTA ── */
+.contact-section {
+  padding: 6rem 2.5rem;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 100%, rgba(184, 151, 90, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 0%, rgba(184, 151, 90, 0.05) 0%, transparent 50%);
+}
+
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-section .section-eyebrow {
+  color: var(--gold);
+  justify-content: center;
+}
+
+.contact-section .section-eyebrow::before {
+  background: var(--gold);
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.contact-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.contact-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--white);
+}
+
+.contact-details {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-detail {
+  text-align: center;
+}
+
+.contact-detail-label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.contact-detail-value {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-detail-value a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-detail-value a:hover {
+  color: var(--gold-light);
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 3rem 2.5rem;
+  background: var(--navy-deep);
+  border-top: 1px solid rgba(184, 151, 90, 0.1);
+}
+
+.footer-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.footer-text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════
+   SCROLL ANIMATIONS
+   ═══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: 3rem;
+  }
+
+  .tl-section {
+    gap: 3rem;
+  }
+
+  .globe-canvas-wrap {
+    width: 380px;
+    height: 380px;
+  }
+
+  .globe-ring-1 { width: 420px; height: 420px; }
+  .globe-ring-2 { width: 460px; height: 460px; }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nav-height: 70px;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding-top: calc(var(--nav-height) + 2rem);
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+  }
+
+  .hero-eyebrow {
+    justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-image-accent {
+    display: none;
+  }
+
+  .hero-badge {
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  /* Timeline goes to left-aligned */
+  .timeline-line {
+    left: 2rem;
+  }
+
+  .tl-section {
+    grid-template-columns: 1fr;
+    padding-left: 4rem;
+  }
+
+  .tl-dot {
+    left: 2rem;
+    top: 2rem;
+    transform: translate(-50%, 0);
+  }
+
+  .tl-content.left,
+  .tl-content.right {
+    grid-column: 1;
+    grid-row: auto;
+    padding: 0;
+  }
+
+  .tl-visual.left,
+  .tl-visual.right {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .globe-canvas-wrap {
+    width: 300px;
+    height: 300px;
+  }
+
+  .globe-ring { display: none; }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .tuition-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-details {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .btn-primary, .btn-secondary, .btn-gold, .btn-outline-light {
+    font-size: 0.65rem;
+    padding: 0.85rem 1.75rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .globe-canvas-wrap {
+    width: 260px;
+    height: 260px;
+  }
+
+  .globe-tags {
+    gap: 0.35rem;
+  }
+
+  .globe-tag {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ── Focus styles for accessibility ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ── Print ── */
+@media print {
+  .nav, .globe-section, .video-section, .photo-grid { display: none; }
+  body { color: #000; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" role="navigation" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="BISP — Accueil">
+      <img src="../assets/logos/logo-bisp-header.svg" alt="BISP" width="44" height="46">
+      <span class="nav-logo-text">Bilingual International<br>School of Paris</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#mission">Notre mission</a></li>
+      <li><a href="#pedagogie">Pédagogie</a></li>
+      <li><a href="#campus">Campus</a></li>
+      <li><a href="#communaute">Communauté</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="main">
+  <div class="hero-bg-layer"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Paris 15<sup>e</sup> — Depuis 2012</p>
+      <h1 class="hero-title">
+        Là où deux langues<br>
+        deviennent <em>une force</em>
+      </h1>
+      <p class="hero-desc">
+        École bilingue français-anglais de la Maternelle au Lycée.
+        300 élèves, 32 nationalités, des classes de 12 à 14 enfants
+        — et la conviction que chaque parcours mérite une attention
+        entière.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Demander une visite</a>
+        <a href="#pedagogie" class="btn-secondary">Découvrir l'école</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img
+        src="../assets/images/fille-travaille.png"
+        alt="Élève concentrée en classe à BISP"
+        class="hero-image-main"
+        loading="eager"
+      >
+      <img
+        src="../assets/stock/preschool-kids.jpg"
+        alt="Enfants en maternelle"
+        class="hero-image-accent"
+        loading="eager"
+      >
+      <div class="hero-badge" aria-hidden="true">
+        <div class="hero-badge-number">32</div>
+        <div class="hero-badge-label">nationalités</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS BAR ═══ -->
+<div class="stats-bar" aria-label="Chiffres clés">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-number">300</div>
+      <div class="stat-label">Élèves</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number">32</div>
+      <div class="stat-label">Nationalités</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number">12–14</div>
+      <div class="stat-label">Élèves par classe</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Campus dans le 15<sup>e</sup></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TIMELINE — MAIN CONTENT SPINE
+     ═══════════════════════════════════════ -->
+<div class="timeline-container" id="mission">
+  <div class="timeline-line" aria-hidden="true"></div>
+
+  <!-- ── Section 1 : Mission (texte gauche, image droite) ── -->
+  <article class="tl-section">
+    <div class="tl-dot" aria-hidden="true"></div>
+    <div class="tl-content left reveal">
+      <p class="section-eyebrow">Notre mission</p>
+      <h2 class="section-title">
+        Grandir dans<br><em>deux cultures</em>
+      </h2>
+      <p class="section-text">
+        À BISP, le bilinguisme n'est pas un supplément — c'est la langue de
+        l'école. Chaque classe est co-animée par un enseignant francophone
+        natif et un enseignant anglophone natif. Les deux langues se
+        croisent dans chaque couloir, chaque cour de récréation, chaque
+        projet.
+      </p>
+      <p class="section-text">
+        Le résultat : des enfants qui ne traduisent plus. Ils pensent,
+        rêvent et argumentent dans les deux langues — un double passeport
+        intellectuel qui les accompagnera toute leur vie.
+      </p>
+    </div>
+    <div class="tl-visual right tl-visual-framed reveal reveal-delay-1">
+      <img src="../assets/stock/classroom-students.jpg" alt="Classe bilingue à BISP" class="tl-image">
+    </div>
+  </article>
+
+  <!-- ── Section 2 : Intimité (image gauche, texte droite) ── -->
+  <article class="tl-section" id="pedagogie">
+    <div class="tl-dot" aria-hidden="true"></div>
+    <div class="tl-visual left reveal">
+      <img src="../assets/stock/teacher-children.jpg" alt="Enseignante avec ses élèves" class="tl-image">
+    </div>
+    <div class="tl-content right reveal reveal-delay-1">
+      <p class="section-eyebrow">Pédagogie</p>
+      <h2 class="section-title">
+        12 élèves par classe.<br><em>Chacun est vu.</em>
+      </h2>
+      <p class="section-text">
+        Quand un enseignant connaît le prénom de chaque parent, remarque
+        qu'un enfant a moins souri ce matin et adapte sa pédagogie l'après-midi
+        même — ce n'est pas de la théorie. C'est le quotidien de nos classes
+        de 12 à 14 élèves.
+      </p>
+      <p class="section-text">
+        Cette taille permet un suivi individualisé qui serait impossible
+        dans une structure plus grande. Chaque enfant avance à son rythme,
+        stimulé sans être bousculé.
+      </p>
+    </div>
+  </article>
+
+  <!-- ── Section 3 : Programmes (texte gauche, image droite) ── -->
+  <article class="tl-section">
+    <div class="tl-dot" aria-hidden="true"></div>
+    <div class="tl-content left reveal">
+      <p class="section-eyebrow">Programmes</p>
+      <h2 class="section-title">
+        Cambridge & Pearson Edexcel :<br><em>les portes s'ouvrent</em>
+      </h2>
+      <p class="section-text">
+        Nos élèves passent les IGCSE et les A-Levels, reconnus par les
+        universités du monde entier. Ce double cursus international leur
+        ouvre les portes de Sciences Po comme de King's College, de McGill
+        comme de l'ESSEC.
+      </p>
+      <p class="section-text">
+        Le programme intègre les exigences du socle commun français avec la
+        rigueur des examens britanniques — pour que nos élèves ne ferment
+        jamais aucune porte.
+      </p>
+    </div>
+    <div class="tl-visual right reveal reveal-delay-1">
+      <img src="../assets/stock/library.jpg" alt="Bibliothèque de l'école" class="tl-image">
+    </div>
+  </article>
+
+  <!-- ── Section 4 : Les 4 piliers (image gauche, contenu droite) ── -->
+  <article class="tl-section">
+    <div class="tl-dot" aria-hidden="true"></div>
+    <div class="tl-visual left reveal">
+      <img src="../assets/stock/diverse-students.jpg" alt="Élèves de différentes nationalités" class="tl-image">
+    </div>
+    <div class="tl-content right reveal reveal-delay-1">
+      <p class="section-eyebrow">Nos valeurs</p>
+      <h2 class="section-title">Quatre piliers,<br><em>une promesse</em></h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <img src="../assets/pictos/eleves.svg" alt="" class="pillar-icon" aria-hidden="true">
+          <h4>Intimité</h4>
+          <p>Des classes à taille humaine où chaque enfant est connu, écouté et accompagné.</p>
+        </div>
+        <div class="pillar-card">
+          <img src="../assets/pictos/bilingue.svg" alt="" class="pillar-icon" aria-hidden="true">
+          <h4>Double passeport</h4>
+          <p>Deux langues maternelles, deux cultures, un avantage pour la vie.</p>
+        </div>
+        <div class="pillar-card">
+          <img src="../assets/pictos/nationalites.svg" alt="" class="pillar-icon" aria-hidden="true">
+          <h4>Monde</h4>
+          <p>32 nationalités sous un même toit — la diversité comme richesse quotidienne.</p>
+        </div>
+        <div class="pillar-card">
+          <img src="../assets/pictos/mission.svg" alt="" class="pillar-icon" aria-hidden="true">
+          <h4>Confiance</h4>
+          <p>Un cadre bienveillant qui forme des enfants sûrs d'eux et ouverts aux autres.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── Section 5 : Campus (texte gauche, image droite) ── -->
+  <article class="tl-section" id="campus">
+    <div class="tl-dot" aria-hidden="true"></div>
+    <div class="tl-content left reveal">
+      <p class="section-eyebrow">Nos campus</p>
+      <h2 class="section-title">
+        Trois adresses,<br><em>un quartier</em>
+      </h2>
+      <p class="section-text">
+        Le 15<sup>e</sup> arrondissement de Paris est l'un des quartiers les
+        plus résidentiels et familiaux de la capitale. Nos trois campus y
+        sont implantés à quelques rues l'un de l'autre — assez proches pour
+        partager, assez distincts pour offrir à chaque tranche d'âge son
+        propre univers.
+      </p>
+      <p class="section-text">
+        Maternelle, Primaire, Collège et Lycée : chaque bâtiment est pensé
+        pour l'âge de ses occupants, avec des espaces adaptés, lumineux et
+        sécurisés.
+      </p>
+    </div>
+    <div class="tl-visual right tl-visual-framed reveal reveal-delay-1">
+      <img src="../assets/stock/school-building.jpg" alt="Campus BISP dans le 15e arrondissement" class="tl-image">
+    </div>
+  </article>
+
+  <!-- ── Section 6 : Vie scolaire (image gauche, texte droite) ── -->
+  <article class="tl-section">
+    <div class="tl-dot" aria-hidden="true"></div>
+    <div class="tl-visual left reveal">
+      <img src="../assets/stock/art-class.jpg" alt="Atelier artistique à BISP" class="tl-image">
+    </div>
+    <div class="tl-content right reveal reveal-delay-1">
+      <p class="section-eyebrow">Vie scolaire</p>
+      <h2 class="section-title">
+        Au-delà des<br><em>salles de classe</em>
+      </h2>
+      <p class="section-text">
+        Arts plastiques, musique, sport, théâtre bilingue, sorties
+        culturelles dans Paris, semaines thématiques internationales…
+        À BISP, l'apprentissage ne s'arrête jamais à la sonnerie.
+      </p>
+      <p class="section-text">
+        Nos élèves apprennent autant en montant une pièce en anglais qu'en
+        résolvant une équation. C'est cette richesse d'expériences qui
+        construit des individus complets et confiants.
+      </p>
+    </div>
+  </article>
+</div><!-- end timeline-container -->
+
+<!-- ═══ GLOBE — 32 NATIONALITÉS ═══ -->
+<section class="globe-section" id="communaute" aria-label="Communauté internationale">
+  <div class="globe-inner">
+    <p class="globe-eyebrow reveal">Notre communauté</p>
+    <h2 class="globe-title reveal reveal-delay-1">32 nationalités,<br><em>une seule école</em></h2>
+    <p class="globe-subtitle reveal reveal-delay-2">
+      De Tokyo à São Paulo, de Londres à Séoul — nos familles
+      viennent du monde entier et choisissent Paris.
+    </p>
+
+    <div class="globe-canvas-wrap reveal reveal-delay-2">
+      <canvas class="globe-canvas" id="globeCanvas" aria-label="Globe interactif montrant les 32 nationalités représentées à BISP"></canvas>
+      <div class="globe-ring globe-ring-1" aria-hidden="true"></div>
+      <div class="globe-ring globe-ring-2" aria-hidden="true"></div>
+    </div>
+
+    <div class="globe-tags reveal reveal-delay-3" role="list" aria-label="Nationalités représentées">
+      <span class="globe-tag" role="listitem">France</span>
+      <span class="globe-tag" role="listitem">Royaume-Uni</span>
+      <span class="globe-tag" role="listitem">États-Unis</span>
+      <span class="globe-tag" role="listitem">Japon</span>
+      <span class="globe-tag" role="listitem">Corée du Sud</span>
+      <span class="globe-tag" role="listitem">Brésil</span>
+      <span class="globe-tag" role="listitem">Allemagne</span>
+      <span class="globe-tag" role="listitem">Italie</span>
+      <span class="globe-tag" role="listitem">Espagne</span>
+      <span class="globe-tag" role="listitem">Inde</span>
+      <span class="globe-tag" role="listitem">Chine</span>
+      <span class="globe-tag" role="listitem">Canada</span>
+      <span class="globe-tag" role="listitem">Australie</span>
+      <span class="globe-tag" role="listitem">Suisse</span>
+      <span class="globe-tag" role="listitem">Pays-Bas</span>
+      <span class="globe-tag" role="listitem">Suède</span>
+      <span class="globe-tag" role="listitem">Russie</span>
+      <span class="globe-tag" role="listitem">Liban</span>
+      <span class="globe-tag" role="listitem">Nigéria</span>
+      <span class="globe-tag" role="listitem">Mexique</span>
+      <span class="globe-tag" role="listitem">Argentine</span>
+      <span class="globe-tag" role="listitem">Turquie</span>
+      <span class="globe-tag" role="listitem">Belgique</span>
+      <span class="globe-tag" role="listitem">Portugal</span>
+      <span class="globe-tag" role="listitem">Colombie</span>
+      <span class="globe-tag" role="listitem">Israël</span>
+      <span class="globe-tag" role="listitem">Émirats arabes unis</span>
+      <span class="globe-tag" role="listitem">Singapour</span>
+      <span class="globe-tag" role="listitem">Irlande</span>
+      <span class="globe-tag" role="listitem">Norvège</span>
+      <span class="globe-tag" role="listitem">Pologne</span>
+      <span class="globe-tag" role="listitem">Grèce</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDÉO ═══ -->
+<section class="video-section">
+  <div class="video-section::before"></div>
+  <div class="video-inner">
+    <p class="section-eyebrow reveal" style="justify-content:center">Découvrir BISP</p>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;margin-bottom:0">
+      Un aperçu de<br><em>notre quotidien</em>
+    </h2>
+    <div class="video-wrapper reveal reveal-delay-2">
+      <video
+        id="heroVideo"
+        poster="../assets/images/hero-poster.jpg"
+        preload="metadata"
+        playsinline
+        aria-label="Vidéo de présentation de BISP"
+      >
+        <source src="../assets/videos/video-presentation-bisp.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge la lecture vidéo.
+      </video>
+      <button class="video-play-btn" id="videoPlayBtn" aria-label="Lire la vidéo">
+        <div class="play-circle">
+          <div class="play-triangle"></div>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TÉMOIGNAGES ═══ -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <p class="section-eyebrow reveal" style="justify-content:center">Témoignages</p>
+      <h2 class="section-title reveal reveal-delay-1">Ce que disent <em>nos familles</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote" aria-hidden="true">"</div>
+        <p class="testimonial-text">
+          Nous avons visité sept écoles internationales à Paris. À BISP,
+          notre fille a été accueillie par son prénom dès la deuxième visite.
+          Ce détail dit tout.
+        </p>
+        <p class="testimonial-author">Caroline M.</p>
+        <p class="testimonial-role">Mère de Luisa, 8 ans — CP et CE2</p>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote" aria-hidden="true">"</div>
+        <p class="testimonial-text">
+          En trois ans, notre fils est passé de zéro français à une
+          fluidité qui impressionne notre famille à Lyon. Le binôme
+          d'enseignants fait des miracles.
+        </p>
+        <p class="testimonial-author">James & Yuki T.</p>
+        <p class="testimonial-role">Parents de Kenji, 11 ans — Arrivé du Japon en 2023</p>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-quote" aria-hidden="true">"</div>
+        <p class="testimonial-text">
+          Ce qui nous a convaincus, c'est la taille. 12 élèves, deux
+          enseignants — notre fils n'est jamais passé inaperçu. Il a
+          gagné une confiance incroyable.
+        </p>
+        <p class="testimonial-author">Rodrigo & Ana P.</p>
+        <p class="testimonial-role">Parents de Mateo, 14 ans — Depuis 2019</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACCRÉDITATIONS ═══ -->
+<div class="accreditations">
+  <div class="accreditations-inner reveal">
+    <div class="accreditation-item">
+      <img src="../assets/logos/cambridge.png" alt="Cambridge Assessment International Education" width="auto" height="52">
+      <span class="accreditation-label">Cambridge</span>
+    </div>
+    <div class="accreditation-item">
+      <img src="../assets/logos/pearson-edexcel.png" alt="Pearson Edexcel" width="auto" height="52">
+      <span class="accreditation-label">Pearson Edexcel</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TARIFS ═══ -->
+<section class="tuition" id="tarifs">
+  <div class="tuition-inner">
+    <div class="tuition-header">
+      <p class="section-eyebrow reveal" style="justify-content:center">Tarifs 2025-2026</p>
+      <h2 class="section-title reveal reveal-delay-1">Investir dans <em>leur avenir</em></h2>
+      <p class="section-text reveal reveal-delay-2" style="text-align:center;max-width:480px;margin:0 auto">
+        Des frais de scolarité transparents, sans surprise — incluant
+        l'intégralité du programme bilingue et le suivi personnalisé.
+      </p>
+    </div>
+    <div class="tuition-grid">
+      <div class="tuition-card reveal">
+        <p class="tuition-level">Maternelle</p>
+        <p class="tuition-ages">3 à 5 ans</p>
+        <p class="tuition-price">13.800 <span>€</span></p>
+        <p class="tuition-period">par an</p>
+        <ul class="tuition-features">
+          <li>Immersion bilingue dès 3 ans</li>
+          <li>Enseignants natifs en binôme</li>
+          <li>12 élèves maximum</li>
+        </ul>
+      </div>
+      <div class="tuition-card featured reveal reveal-delay-1">
+        <p class="tuition-level">Primaire</p>
+        <p class="tuition-ages">6 à 10 ans</p>
+        <p class="tuition-price">16.800 <span>€</span></p>
+        <p class="tuition-period">par an</p>
+        <ul class="tuition-features">
+          <li>Programme Cambridge Primary</li>
+          <li>Socle commun français intégré</li>
+          <li>14 élèves maximum</li>
+        </ul>
+      </div>
+      <div class="tuition-card reveal reveal-delay-2">
+        <p class="tuition-level">Collège & Lycée</p>
+        <p class="tuition-ages">11 à 18 ans</p>
+        <p class="tuition-price">21.800 <span>€</span></p>
+        <p class="tuition-period">par an</p>
+        <ul class="tuition-features">
+          <li>IGCSE & A-Levels</li>
+          <li>Orientation universitaire</li>
+          <li>14 élèves maximum</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHOTO GRID ═══ -->
+<div class="photo-grid" aria-label="La vie à BISP en images">
+  <div class="photo-grid-item">
+    <img src="../assets/stock/students-sports.jpg" alt="Activités sportives" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/images/activites-enfants.png" alt="Activités créatives" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/stock/students-reading.jpg" alt="Lecture en bibliothèque" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/stock/playground.jpg" alt="Cour de récréation" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/stock/writing-class.jpg" alt="Cours d'écriture" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/images/jeux-enfant.png" alt="Jeux et apprentissage" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/stock/graduation.jpg" alt="Cérémonie de remise des diplômes" loading="lazy" width="400" height="400">
+  </div>
+  <div class="photo-grid-item">
+    <img src="../assets/stock/paris-cityscape.jpg" alt="Paris, notre ville" loading="lazy" width="400" height="400">
+  </div>
+</div>
+
+<!-- ═══ CONTACT CTA ═══ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <p class="section-eyebrow reveal">Contact</p>
+    <h2 class="contact-title reveal reveal-delay-1">
+      Venez <em>nous rencontrer</em>
+    </h2>
+    <p class="contact-desc reveal reveal-delay-2">
+      Chaque famille est unique. Prenez rendez-vous pour une visite
+      personnalisée de nos campus et rencontrez notre équipe pédagogique.
+    </p>
+    <div class="contact-actions reveal reveal-delay-2">
+      <a href="mailto:operations@bisparis.com" class="btn-gold">Écrire à l'école</a>
+      <a href="tel:+33144189483" class="btn-outline-light">+33 (0) 1 44 18 94 83</a>
+    </div>
+    <div class="contact-details reveal reveal-delay-3">
+      <div class="contact-detail">
+        <p class="contact-detail-label">Adresse</p>
+        <p class="contact-detail-value">Paris 15<sup>e</sup> arrondissement</p>
+      </div>
+      <div class="contact-detail">
+        <p class="contact-detail-label">Email</p>
+        <p class="contact-detail-value">
+          <a href="mailto:operations@bisparis.com">operations@bisparis.com</a>
+        </p>
+      </div>
+      <div class="contact-detail">
+        <p class="contact-detail-label">Téléphone</p>
+        <p class="contact-detail-value">
+          <a href="tel:+33144189483">+33 (0) 1 44 18 94 83</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="../assets/logos/logo-bisp-header.svg" alt="BISP" width="32" height="34">
+      <span class="footer-text">Bilingual International School of Paris</span>
+    </div>
+    <p class="footer-text">&copy; 2026 BISP. Tous droits réservés.</p>
+    <ul class="footer-links">
+      <li><a href="#">Mentions légales</a></li>
+      <li><a href="#">Politique de confidentialité</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── Nav scroll effect ── */
+  const nav = document.querySelector('.nav');
+  let lastScroll = 0;
+
+  function handleNavScroll() {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 60);
+    lastScroll = y;
+  }
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  handleNavScroll();
+
+  /* ── Mobile nav toggle ── */
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', function() {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('active', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Close on link click
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      links.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ── Video play button ── */
+  const video = document.getElementById('heroVideo');
+  const playBtn = document.getElementById('videoPlayBtn');
+
+  if (video && playBtn) {
+    playBtn.addEventListener('click', function() {
+      video.play();
+      video.controls = true;
+      playBtn.classList.add('hidden');
+    });
+
+    video.addEventListener('pause', function() {
+      if (video.currentTime > 0) {
+        playBtn.classList.remove('hidden');
+      }
+    });
+
+    video.addEventListener('ended', function() {
+      playBtn.classList.remove('hidden');
+      video.controls = false;
+    });
+  }
+
+  /* ── Scroll reveal (IntersectionObserver) ── */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(function(el) { observer.observe(el); });
+  } else {
+    // Show everything immediately
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+
+  /* ═══════════════════════════════════════
+     INTERACTIVE GLOBE — Canvas 2D
+     ═══════════════════════════════════════ */
+  const canvas = document.getElementById('globeCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  // Nationalities with approximate lat/lng
+  const nations = [
+    { name: 'France', lat: 46.6, lng: 2.2 },
+    { name: 'Royaume-Uni', lat: 53.0, lng: -1.5 },
+    { name: 'États-Unis', lat: 39.0, lng: -98.0 },
+    { name: 'Japon', lat: 36.0, lng: 138.0 },
+    { name: 'Corée du Sud', lat: 36.5, lng: 127.8 },
+    { name: 'Brésil', lat: -14.2, lng: -51.9 },
+    { name: 'Allemagne', lat: 51.2, lng: 10.4 },
+    { name: 'Italie', lat: 41.9, lng: 12.5 },
+    { name: 'Espagne', lat: 40.5, lng: -3.7 },
+    { name: 'Inde', lat: 20.6, lng: 79.0 },
+    { name: 'Chine', lat: 35.9, lng: 104.2 },
+    { name: 'Canada', lat: 56.1, lng: -106.3 },
+    { name: 'Australie', lat: -25.3, lng: 133.8 },
+    { name: 'Suisse', lat: 46.8, lng: 8.2 },
+    { name: 'Pays-Bas', lat: 52.1, lng: 5.3 },
+    { name: 'Suède', lat: 60.1, lng: 18.6 },
+    { name: 'Russie', lat: 61.5, lng: 105.3 },
+    { name: 'Liban', lat: 33.9, lng: 35.9 },
+    { name: 'Nigéria', lat: 9.1, lng: 8.7 },
+    { name: 'Mexique', lat: 23.6, lng: -102.6 },
+    { name: 'Argentine', lat: -38.4, lng: -63.6 },
+    { name: 'Turquie', lat: 38.9, lng: 35.2 },
+    { name: 'Belgique', lat: 50.5, lng: 4.5 },
+    { name: 'Portugal', lat: 39.4, lng: -8.2 },
+    { name: 'Colombie', lat: 4.6, lng: -74.1 },
+    { name: 'Israël', lat: 31.0, lng: 34.8 },
+    { name: 'Émirats arabes unis', lat: 23.4, lng: 53.8 },
+    { name: 'Singapour', lat: 1.4, lng: 103.8 },
+    { name: 'Irlande', lat: 53.1, lng: -7.7 },
+    { name: 'Norvège', lat: 60.5, lng: 8.5 },
+    { name: 'Pologne', lat: 51.9, lng: 19.1 },
+    { name: 'Grèce', lat: 39.1, lng: 21.8 }
+  ];
+
+  // Paris coordinates
+  const parisLat = 48.86;
+  const parisLng = 2.35;
+
+  let rotation = 0;
+  let dpr = window.devicePixelRatio || 1;
+  let width, height, cx, cy, radius;
+  let animId;
+  let hoveredNation = null;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cx = width / 2;
+    cy = height / 2;
+    radius = Math.min(width, height) * 0.4;
+  }
+
+  function latLngToSphere(lat, lng, rot) {
+    const phi = (90 - lat) * Math.PI / 180;
+    const theta = (lng + rot) * Math.PI / 180;
+    const x = radius * Math.sin(phi) * Math.cos(theta);
+    const y = -radius * Math.cos(phi);
+    const z = radius * Math.sin(phi) * Math.sin(theta);
+    return { x: cx + x, y: cy + y, z: z };
+  }
+
+  function drawGlobe() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Globe body — subtle gradient
+    const grd = ctx.createRadialGradient(
+      cx - radius * 0.3, cy - radius * 0.3, 0,
+      cx, cy, radius
+    );
+    grd.addColorStop(0, 'rgba(184, 151, 90, 0.06)');
+    grd.addColorStop(0.7, 'rgba(31, 46, 89, 0.08)');
+    grd.addColorStop(1, 'rgba(31, 46, 89, 0.02)');
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fillStyle = grd;
+    ctx.fill();
+
+    // Globe outline
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(184, 151, 90, 0.15)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Latitude lines
+    for (let lat = -60; lat <= 60; lat += 30) {
+      const phi = (90 - lat) * Math.PI / 180;
+      const lineRadius = radius * Math.sin(phi);
+      const lineY = cy - radius * Math.cos(phi);
+
+      if (lineRadius > 0) {
+        ctx.beginPath();
+        ctx.ellipse(cx, lineY, lineRadius, lineRadius * 0.15, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(184, 151, 90, 0.06)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+
+    // Longitude lines
+    for (let lng = 0; lng < 360; lng += 30) {
+      ctx.beginPath();
+      for (let lat = -90; lat <= 90; lat += 2) {
+        const p = latLngToSphere(lat, lng, rotation);
+        if (p.z > 0) {
+          if (lat === -90 || latLngToSphere(lat - 2, lng, rotation).z <= 0) {
+            ctx.moveTo(p.x, p.y);
+          } else {
+            ctx.lineTo(p.x, p.y);
+          }
+        }
+      }
+      ctx.strokeStyle = 'rgba(184, 151, 90, 0.05)';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    }
+
+    // Paris (destination) — larger dot
+    const paris = latLngToSphere(parisLat, parisLng, rotation);
+    if (paris.z > 0) {
+      // Glow
+      const parisGlow = ctx.createRadialGradient(paris.x, paris.y, 0, paris.x, paris.y, 16);
+      parisGlow.addColorStop(0, 'rgba(184, 151, 90, 0.4)');
+      parisGlow.addColorStop(1, 'rgba(184, 151, 90, 0)');
+      ctx.beginPath();
+      ctx.arc(paris.x, paris.y, 16, 0, Math.PI * 2);
+      ctx.fillStyle = parisGlow;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(paris.x, paris.y, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#B8975A';
+      ctx.fill();
+
+      // Label
+      ctx.font = '500 10px Montserrat, sans-serif';
+      ctx.fillStyle = 'rgba(212, 184, 122, 0.9)';
+      ctx.textAlign = 'left';
+      ctx.fillText('PARIS', paris.x + 10, paris.y + 4);
+    }
+
+    // Nation dots + arcs
+    nations.forEach(function(n) {
+      const p = latLngToSphere(n.lat, n.lng, rotation);
+      if (p.z <= 0) return; // behind globe
+
+      const alpha = Math.max(0.3, p.z / radius);
+      const dotSize = (hoveredNation === n.name) ? 4.5 : 3;
+
+      // Dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, dotSize, 0, Math.PI * 2);
+      ctx.fillStyle = (hoveredNation === n.name)
+        ? 'rgba(212, 184, 122, ' + Math.min(1, alpha + 0.3) + ')'
+        : 'rgba(255, 255, 255, ' + (alpha * 0.7) + ')';
+      ctx.fill();
+
+      // Arc to Paris if both visible
+      if (paris.z > 0) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+
+        // Quadratic curve through an elevated midpoint
+        const midX = (p.x + paris.x) / 2;
+        const midY = (p.y + paris.y) / 2 - 20;
+        ctx.quadraticCurveTo(midX, midY, paris.x, paris.y);
+
+        ctx.strokeStyle = (hoveredNation === n.name)
+          ? 'rgba(184, 151, 90, ' + (alpha * 0.5) + ')'
+          : 'rgba(184, 151, 90, ' + (alpha * 0.08) + ')';
+        ctx.lineWidth = (hoveredNation === n.name) ? 1.2 : 0.5;
+        ctx.stroke();
+      }
+
+      // Name on hover
+      if (hoveredNation === n.name) {
+        ctx.font = '300 9px Montserrat, sans-serif';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+        ctx.textAlign = 'center';
+        ctx.fillText(n.name, p.x, p.y - 10);
+      }
+    });
+  }
+
+  function animate() {
+    if (prefersReducedMotion) {
+      rotation = -20; // fixed view showing Europe/Africa
+      drawGlobe();
+      return;
+    }
+    rotation += 0.08;
+    drawGlobe();
+    animId = requestAnimationFrame(animate);
+  }
+
+  // Hover detection
+  canvas.addEventListener('mousemove', function(e) {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    hoveredNation = null;
+
+    nations.forEach(function(n) {
+      const p = latLngToSphere(n.lat, n.lng, rotation);
+      if (p.z <= 0) return;
+      const dx = mx - p.x;
+      const dy = my - p.y;
+      if (Math.sqrt(dx * dx + dy * dy) < 12) {
+        hoveredNation = n.name;
+      }
+    });
+
+    canvas.style.cursor = hoveredNation ? 'pointer' : 'default';
+  });
+
+  canvas.addEventListener('mouseleave', function() {
+    hoveredNation = null;
+    canvas.style.cursor = 'default';
+  });
+
+  // Tag hover → globe highlight
+  document.querySelectorAll('.globe-tag').forEach(function(tag) {
+    tag.addEventListener('mouseenter', function() {
+      hoveredNation = this.textContent.trim();
+    });
+    tag.addEventListener('mouseleave', function() {
+      hoveredNation = null;
+    });
+  });
+
+  // Init
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Only animate when visible
+  const globeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animate();
+      } else {
+        if (animId) cancelAnimationFrame(animId);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  globeObserver.observe(canvas);
+
+  /* ── Smooth scroll for anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
