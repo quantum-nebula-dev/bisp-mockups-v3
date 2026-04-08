@@ -146,10 +146,7 @@ const M_ALL=[
     {id:"hautlac",name:"Haut-Lac",url:"inspired-hautlac/index.html"},
     {id:"ecoledesroches",name:"\u00c9cole des Roches",url:"inspired-ecoledesroches/index.html"},
 ];
-// Shuffle deterministically per session (seeded by date) to avoid order bias
-function shuffle(arr,seed){const a=[...arr];for(let i=a.length-1;i>0;i--){seed=(seed*16807)%2147483647;const j=seed%( i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
-const today=new Date();const seed=today.getFullYear()*10000+today.getMonth()*100+today.getDate();
-const M=shuffle(M_ALL,seed);
+const M=M_ALL;
 
 const CRIT=[
     {cat:"Premi\u00e8re impression",desc:"Parcourez rapidement la page, puis notez\u00a0:",items:["L\u2019impact visuel vous donne-t-il envie de poursuivre\u00a0?","Le site inspire-t-il confiance et professionnalisme\u00a0?","Correspond-il \u00e0 l\u2019image de BISP\u00a0? (chaleureux, international, premium)"]},
