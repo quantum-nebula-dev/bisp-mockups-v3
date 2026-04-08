@@ -944,12 +944,14 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 5px;
   padding: 36px 28px;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
   position: relative;
+  box-shadow: var(--shadow-card);
 }
 .temoignage-card:hover {
   transform: translateY(-4px);
   background: rgba(255,255,255,0.16);
+  box-shadow: var(--shadow-hover);
 }
 .temoignage-card::before {
   content: '\201C';
