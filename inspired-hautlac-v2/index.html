@@ -1420,17 +1420,7 @@ h1, h2, h3, h4, h5, h6 {
   .btn-cta-primary, .btn-cta-secondary { width: 100%; justify-content: center; }
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal { opacity: 1; transform: none; }
-  .hero-rotating-word { opacity: 1; transform: none; animation: none; }
-  .hero-rotating-word:not(:first-child) { display: none; }
-}
+/* Reduced motion - placeholder removed, moved after :root */
 
 /* Focus visible */
 *:focus-visible {
