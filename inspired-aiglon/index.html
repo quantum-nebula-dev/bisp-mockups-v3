@@ -2370,12 +2370,18 @@ body::after {
         }
       });
     }, {
-      threshold: 0.05,
-      rootMargin: '50px 0px 0px 0px'
+      threshold: 0,
+      rootMargin: '200px 0px 0px 0px'
     });
 
     document.querySelectorAll('.reveal').forEach(function(el) {
-      revealObserver.observe(el);
+      /* If the element is already above or inside viewport, reveal immediately */
+      var rect = el.getBoundingClientRect();
+      if (rect.bottom < window.innerHeight + 200) {
+        el.classList.add('visible');
+      } else {
+        revealObserver.observe(el);
+      }
     });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el) {
