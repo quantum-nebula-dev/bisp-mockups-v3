@@ -2329,15 +2329,13 @@ ul, ol { list-style: none; }
 
       setTimeout(function() {
         current.classList.remove('exit-up');
-      }, 500);
+      }, 600);
 
       currentWord = (currentWord + 1) % words.length;
       var next = words[currentWord];
-      next.classList.add('enter-below');
 
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
-          next.classList.remove('enter-below');
           next.classList.add('active');
         });
       });
