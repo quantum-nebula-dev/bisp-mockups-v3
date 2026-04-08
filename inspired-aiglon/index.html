@@ -2332,19 +2332,14 @@ ul, ol { list-style: none; }
       current.classList.remove('active');
       current.classList.add('exit-up');
 
-      setTimeout(function() {
-        current.classList.remove('exit-up');
-      }, 600);
-
       currentWord = (currentWord + 1) % words.length;
       var next = words[currentWord];
 
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          next.classList.add('active');
-        });
-      });
-    }, 2800);
+      setTimeout(function() {
+        current.classList.remove('exit-up');
+        next.classList.add('active');
+      }, 400);
+    }, 3000);
   }
 
   rotateWords();
