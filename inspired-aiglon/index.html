@@ -78,18 +78,7 @@ a { text-decoration: none; color: inherit; }
 button { border: none; background: none; cursor: pointer; font-family: inherit; }
 ul, ol { list-style: none; }
 
-/* --- Grain Overlay (cinematic texture) --- */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.04;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vz08telepr+/NiYoJAM2oy5AAAA0klEQVQ4y73SQQ6DIBCFYSTuhG3daW/Andh7sRcx3P+qlBkYEE3S+JJfGJhJfPmhkGSyNs8ATuL8Bpik+5gkxSniAp2J+cIhIJQ7aFy5RFRLoxDi0FZ6kfAXhGiLWNkrZMGZZ1LB8kXBBQvHD/Ij4xUuCe/HK6bA1bYxc3o4rE0FEm/O3pUoXRQ2DxTOQWbFidBk7qUj/S/5I5rG1R4skN/GacOlYLNLTvXTRUqKLuQ1qwPfWc3mNLjlXhbKHbH/3/MK7//scTAC+8KZ8LfPkJfgEqaA3FJn8jPgAAAABJRU5ErkJggg==");
-  background-repeat: repeat;
-  background-size: 64px 64px;
-}
+/* --- Grain Overlay (cinematic texture — applied only to hero for performance) --- */
 
 /* --- Utility --- */
 .container {
