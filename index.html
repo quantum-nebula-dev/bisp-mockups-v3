@@ -337,9 +337,7 @@ function updateProgress(){
 }
 
 function exportJSON(){
-    // Enrich with reference names for analysis
-    const exportData={...D,_meta:{version:'v3',date:new Date().toISOString(),mapping:{}}};
-    M_ALL.forEach(m=>{exportData._meta.mapping[m.id]=m.ref});
+    const exportData={...D,_meta:{version:'v3',date:new Date().toISOString()}};
     const blob=new Blob([JSON.stringify(exportData,null,2)],{type:'application/json'});
     const a=document.createElement('a');a.href=URL.createObjectURL(blob);
     a.download='BISP-evaluation-v3-'+new Date().toISOString().slice(0,10)+'.json';
