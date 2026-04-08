@@ -664,13 +664,15 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   padding: 36px 28px;
   border: 1px solid rgba(255,255,255,0.12);
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 .pilier-card:hover {
   transform: translateY(-6px);
   background: rgba(255,255,255,0.14);
+  box-shadow: var(--shadow-hover);
 }
 .pilier-card::before {
   content: '';
