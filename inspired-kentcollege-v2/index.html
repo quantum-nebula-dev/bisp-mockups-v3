@@ -908,6 +908,14 @@ img {
 
 .portrait-card {
   text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s ease;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+}
+
+.portrait-card:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .portrait-card__image-wrap {
