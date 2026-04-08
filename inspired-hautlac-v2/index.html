@@ -887,11 +887,23 @@ h1, h2, h3, h4, h5, h6 {
 /* ========== SECTION : TEMOIGNAGES ========== */
 .section-temoignages {
   position: relative;
-  background: var(--teal);
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, #2a7a8a 100%);
   padding: 120px 0 140px;
   clip-path: polygon(0 50px, 100% 0, 100% calc(100% - 50px), 0 100%);
   margin-top: -20px;
   overflow: hidden;
+}
+.section-temoignages::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 40%;
+  height: 60%;
+  background: linear-gradient(45deg, transparent, rgba(237, 49, 34, 0.08));
+  transform: skewY(-12deg);
+  pointer-events: none;
+  z-index: 0;
 }
 .section-temoignages .dot-pattern {
   background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
