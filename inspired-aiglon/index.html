@@ -345,8 +345,9 @@ ul, ol { list-style: none; }
 
 .hero-words__word {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  left: 0;
+  top: 0;
   font-family: var(--font-primary);
   font-size: clamp(44px, 8vw, 110px);
   font-weight: 700;
@@ -355,23 +356,19 @@ ul, ol { list-style: none; }
   line-height: 1;
   color: var(--color-red);
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  white-space: nowrap;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
 }
 
 .hero-words__word.active {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 .hero-words__word.exit-up {
   opacity: 0;
-  transform: translateX(-50%) translateY(-30px);
-}
-
-.hero-words__word.enter-below {
-  opacity: 0;
-  transform: translateX(-50%) translateY(30px);
+  transform: translateY(-100%);
 }
 
 .hero__tagline {
