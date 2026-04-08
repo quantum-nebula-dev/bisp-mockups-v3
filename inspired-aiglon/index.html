@@ -2456,21 +2456,7 @@ ul, ol { list-style: none; }
 
   slideInterval = setInterval(nextSlide, 6000);
 
-  /* ═══════════════════════════════
-     PARALLAX-LITE ON HERO
-     ═══════════════════════════════ */
-  if (!prefersReducedMotion) {
-    var heroContent = document.querySelector('.hero__content');
-    window.addEventListener('scroll', function() {
-      var scrollY = window.pageYOffset;
-      if (scrollY < window.innerHeight) {
-        var opacity = 1 - (scrollY / (window.innerHeight * 0.7));
-        var translateY = scrollY * 0.3;
-        heroContent.style.opacity = Math.max(opacity, 0);
-        heroContent.style.transform = 'translateY(' + translateY + 'px)';
-      }
-    }, { passive: true });
-  }
+  /* Parallax removed for rendering performance */
 
 })();
 </script>
