@@ -136,15 +136,15 @@
 
 <script>
 const M_ALL=[
-    {id:"beausoleil",name:"Inspiration A",url:"inspired-beausoleil/index.html",ref:"Beau Soleil"},
-    {id:"aiglon",name:"Inspiration B",url:"inspired-aiglon/index.html",ref:"Aiglon"},
-    {id:"lerosey",name:"Inspiration C",url:"inspired-lerosey/index.html",ref:"Le Rosey"},
-    {id:"sevenoaks",name:"Inspiration D",url:"inspired-sevenoaks/index.html",ref:"Sevenoaks"},
-    {id:"gordonstoun",name:"Inspiration E",url:"inspired-gordonstoun/index.html",ref:"Gordonstoun"},
-    {id:"repton",name:"Inspiration F",url:"inspired-repton/index.html",ref:"Repton"},
-    {id:"kentcollege",name:"Inspiration G",url:"inspired-kentcollege/index.html",ref:"Kent College"},
-    {id:"hautlac",name:"Inspiration H",url:"inspired-hautlac/index.html",ref:"Haut-Lac"},
-    {id:"ecoledesroches",name:"Inspiration I",url:"inspired-ecoledesroches/index.html",ref:"&Eacute;cole des Roches"},
+    {id:"beausoleil",name:"Beau Soleil",url:"inspired-beausoleil/index.html"},
+    {id:"aiglon",name:"Aiglon",url:"inspired-aiglon/index.html"},
+    {id:"lerosey",name:"Le Rosey",url:"inspired-lerosey/index.html"},
+    {id:"sevenoaks",name:"Sevenoaks",url:"inspired-sevenoaks/index.html"},
+    {id:"gordonstoun",name:"Gordonstoun",url:"inspired-gordonstoun/index.html"},
+    {id:"repton",name:"Repton",url:"inspired-repton/index.html"},
+    {id:"kentcollege",name:"Kent College",url:"inspired-kentcollege/index.html"},
+    {id:"hautlac",name:"Haut-Lac",url:"inspired-hautlac/index.html"},
+    {id:"ecoledesroches",name:"\u00c9cole des Roches",url:"inspired-ecoledesroches/index.html"},
 ];
 // Shuffle deterministically per session (seeded by date) to avoid order bias
 function shuffle(arr,seed){const a=[...arr];for(let i=a.length-1;i>0;i--){seed=(seed*16807)%2147483647;const j=seed%( i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
