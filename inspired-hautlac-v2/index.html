@@ -1198,6 +1198,19 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   text-align: center;
 }
+.section-cta::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--teal) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  opacity: 0.08;
+  pointer-events: none;
+  top: 60px;
+  right: 40px;
+  z-index: 1;
+}
 .section-cta .dot-pattern {
   background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   opacity: 1;
