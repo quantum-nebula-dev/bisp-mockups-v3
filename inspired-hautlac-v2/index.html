@@ -43,6 +43,19 @@
   --shadow-hover: 0 16px 48px rgba(0,0,0,0.14);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+  .hero-rotating-word { opacity: 1; transform: none; animation: none; }
+  .hero-rotating-word:not(:first-child) { display: none; }
+}
+
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
