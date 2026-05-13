@@ -241,7 +241,8 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
-  align-items: center;
+  /* safe center: prevents top clipping on short viewports */
+  align-items: safe center;
   position: relative;
   overflow: clip;
   background: var(--cream);
