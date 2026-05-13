@@ -316,12 +316,15 @@ h3.heading-mix{font-size:clamp(1.3rem, 2.5vw, 2rem)}
 /* ============================================
    HERO — Asymétrique, style éditorial
    ============================================ */
+:root{--hero-cap-max:1200px}
 .hero{
   min-height:100vh;
+  min-height:100svh;
+  min-height:min(100svh, var(--hero-cap-max));
   display:grid;
   grid-template-columns:1fr 1fr;
   position:relative;
-  overflow:hidden;
+  overflow:clip;
 }
 
 .hero-content{
