@@ -272,12 +272,15 @@ p { margin-bottom: 1rem; }
 /* ═══════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════ */
+:root {--hero-cap-max: 1200px}
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: min(100svh, var(--hero-cap-max));
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: clip;
   background: var(--navy-deep);
 }
 
