@@ -1211,8 +1211,8 @@ h3.heading-mix{font-size:clamp(1.3rem, 2.5vw, 2rem)}
    RESPONSIVE
    ============================================ */
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-content{padding:8rem 2rem 3rem}
+  .hero{grid-template-columns:1fr;min-height:100svh}
+  .hero-content{padding:calc(3rem + var(--header-h)) 2rem 3rem}
   .hero-visual{height:50vh}
   .hero-badge{
     right:auto;left:2rem;
@@ -1259,7 +1259,7 @@ h3.heading-mix{font-size:clamp(1.3rem, 2.5vw, 2rem)}
   .nav-links{display:none}
   .nav-burger{display:flex}
 
-  .hero-content{padding:7rem 1.5rem 2.5rem}
+  .hero-content{padding:calc(2.5rem + var(--header-h)) 1.5rem 2.5rem}
 
   .pillars-grid{grid-template-columns:1fr}
   .programmes-grid{grid-template-columns:1fr}
