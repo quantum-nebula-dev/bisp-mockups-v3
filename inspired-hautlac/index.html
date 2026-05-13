@@ -332,21 +332,26 @@ p { margin-bottom: 1rem; }
   filter: grayscale(100%) brightness(0.4);
 }
 
-/* Dots décoratifs */
+/* Dots décoratifs — z:1 to stay behind content, hidden on narrow viewports to avoid collision with actions */
 .hero__dots {
   position: absolute;
-  bottom: 15%;
-  left: 5%;
-  z-index: 2;
+  bottom: 8%;
+  left: 3%;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero__dots::before {
   content: '';
   position: absolute;
-  width: 180px;
-  height: 180px;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1.5px, transparent 1.5px);
+  width: 160px;
+  height: 160px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1.5px, transparent 1.5px);
   background-size: 14px 14px;
+  opacity: 0.85;
+}
+@media (max-width: 1200px) {
+  .hero__dots { display: none; }
 }
 
 .hero__content {
