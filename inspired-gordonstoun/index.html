@@ -330,7 +330,8 @@ h3.heading-mix{font-size:clamp(1.3rem, 2.5vw, 2rem)}
 .hero-content{
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  /* safe center: falls back to flex-start when content overflows */
+  justify-content:safe center;
   /* Asymmetric padding: top includes --header-h so content visually centers in the band BELOW the fixed nav */
   padding:calc(var(--space-2xl) + var(--header-h)) var(--space-lg) var(--space-2xl);
   padding-left:clamp(2rem, 6vw, 6rem);
