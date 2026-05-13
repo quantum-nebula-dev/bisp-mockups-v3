@@ -236,12 +236,15 @@ body {
 }
 
 /* ── Hero ── */
+:root {--hero-cap-max: 1200px}
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: min(100svh, var(--hero-cap-max));
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   background: var(--cream);
 }
 
