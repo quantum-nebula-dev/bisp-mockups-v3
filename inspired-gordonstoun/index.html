@@ -316,11 +316,11 @@ h3.heading-mix{font-size:clamp(1.3rem, 2.5vw, 2rem)}
 /* ============================================
    HERO — Asymétrique, style éditorial
    ============================================ */
-:root{--hero-cap-max:1200px}
+:root{--header-h:76px}
 .hero{
+  /* Hero exactly fills the viewport (no bleed, no cap). Fixed nav overlays the first --header-h px. */
   min-height:100vh;
   min-height:100svh;
-  min-height:min(100svh, var(--hero-cap-max));
   display:grid;
   grid-template-columns:1fr 1fr;
   position:relative;
@@ -331,7 +331,8 @@ h3.heading-mix{font-size:clamp(1.3rem, 2.5vw, 2rem)}
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:var(--space-2xl) var(--space-lg);
+  /* Asymmetric padding: top includes --header-h so content visually centers in the band BELOW the fixed nav */
+  padding:calc(var(--space-2xl) + var(--header-h)) var(--space-lg) var(--space-2xl);
   padding-left:clamp(2rem, 6vw, 6rem);
   position:relative;
   z-index:2;
